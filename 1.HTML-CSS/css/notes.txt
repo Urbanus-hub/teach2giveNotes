@@ -1,0 +1,4 @@
+[id] → Targets any element that has an id attribute (e.g., #about-us).
+[id="about-us"] → Specifically targets <li id="about-us">, making it red and underlined.
+[href] → Targets all <a> elements with an href attribute (sets color to blue).
+[href*="safaricom"] → Targets any <a> tag where href contains the word "safaricom" and makes it italic.

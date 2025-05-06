@@ -1,0 +1,58 @@
+[
+    {
+        "sale_id": "001",
+        "date": "2024-09-01",
+        "customer": "John Doe",
+        "amount": 250.75,
+        "item": "Laptop",
+        "quantity": 1
+    },
+    {
+        "sale_id": "002",
+        "date": "2024-09-02",
+        "customer": "Jane Smith",
+        "amount": 125.50,
+        "item": "Wireless Mouse",
+        "quantity": 2
+    },
+    {
+        "sale_id": "003",
+        "date": "2024-09-03",
+        "customer": "Alice Johnson",
+        "amount": 299.99,
+        "item": "Smartphone",
+        "quantity": 1
+    },
+    {
+        "sale_id": "004",
+        "date": "2024-09-04",
+        "customer": "Bob Brown",
+        "amount": 75.00,
+        "item": "Keyboard",
+        "quantity": 3
+    },
+    {
+        "sale_id": "005",
+        "date": "2024-09-05",
+        "customer": "Charlie Davis",
+        "amount": 180.00,
+        "item": "Headphones",
+        "quantity": 2
+    },
+    {
+        "sale_id": "006",
+        "date": "2024-09-06",
+        "customer": "Dana Lee",
+        "amount": 420.00,
+        "item": "Monitor",
+        "quantity": 1
+    },
+    {
+        "sale_id": "007",
+        "date": "2024-09-07",
+        "customer": "Eva Green",
+        "amount": 55.75,
+        "item": "USB Drive",
+        "quantity": 5
+    }
+]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div class="container"></div> -->
+    <script>
+      const button1 = document.createElement("button");
+      const button2 = document.createElement("button");
+      button1.style.width = "250px";
+      button1.style.height = "50px";
+      button2.style.width = "250px";
+      button2.style.height = "50px";
+      button1.style.fontWeight = "900";
+      button2.style.fontWeight = "900";
+      button1.textContent = "Blue";
+      button2.textContent = "Red";
+      document.body.append(button1);
+      document.body.append(button2);
+
+      //oop
+      class Display {
+        constructor() {
+          //normal functions can not access the outer of this object
+          this.buttonText = "New Text😂😂😂";
+          //this text wont change because it it outside the context
+          button1.addEventListener("click", function (e) {
+            //this is a normal function
+            //this text will change because it it inisde the context
+            this.buttonText = "New text accessed 👍👍👍";
+            //console.log('Hey I have been clicked')
+            //console.log(e.target.textContent)
+            e.target.textContent = this.buttonText;
+            console.log(this.buttonText); //undefined
+          });
+        }
+      }
+
+      new Display();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+📌 What Are Route Parameters?
+Route parameters (or route params) are dynamic parts of a URL used to capture specific values. They allow the backend to handle custom user requests like:
+
+Fetching a specific event by ID.
+Fetching events based on category.
+Combining route params with query params for more flexible API calls.
+
+📌 Defining Route Parameters
+A route parameter is defined using a colon (:) followed by a parameter name in the route path.
+
+app.get("/api/events/:id, (req, res) => {
+    const eventId = req.params.id //capture value from the url
+    res.send(`Fetching event with ID: ${eventId}`)
+})
+
+🔹 URL Example: http://localhost:3000/api/events/1
+🔹 Captured Param: req.params.id = "1"
+
+{
+    "id": 1,
+    "title": "Summer Music Festival",
+    "price": 50,
+    "location": "New York",
+    "company": "Music Festivals Inc.",
+    "category": "Music",
+    "date": "2023-07-15",
+    "duration": "3 hours",
+    "attendees": 5000,
+    "rating": 4.5,
+    "tags": [
+        "outdoor",
+        "live music",
+        "festival"
+    ]
+}
+
+ http://localhost:3000/api/events/fghjklb;fjhuygl;mkdh'; ------ Not a number response
+
+
+
+ //Hnadling multiple route paramters 
+//We can combine multiple route parameters in one request.
+//GET http://localhost:3000/api/events/music/1
+app.get('/api/events/:category/:id', (req:Request, res:Response) => {
+    const {category, id} = req.params
+    res.send(`Category: ${category}, Event Id: ${id}`)
+})
+//Category: music, Event Id: 1
+//Route parameters can be optional by adding a ? after the parameter name.
+
+
+we will use https://www.npmjs.com/package/@faker-js/faker
+
+📌 Understanding the Difference Between PUT and PATCH
+Method	Purpose	Behavior
+PUT	Replaces an entire resource	Requires the full object to update
+PATCH	Partially updates a resource	Only specific fields are updated
+DELETE	Removes a resource	Deletes an item based on id
+
+//all of thm required to get the id of that resource 
+📌 Step 1: Implement PUT (Full Update)
+🟠 Update a User (PUT /api/v1/users/:id)
+
+Completely replaces the existing user with new data.
+
+
+In **Node.js**, the way you import from a package depends on whether the package uses **named exports** or **default exports**. You **cannot** use a completely random name unless the package supports default exports.
+
+---
+
+## **1. Named Imports (Must Use the Exact Name)**
+When using **named imports** (`import { X } from 'package'`), you **must use the correct name** that the package exports.
+
+### **Example: Named Import (Must Be Exact)**
+```javascript
+import { Pool } from 'pg'; // ✅ Correct
+import { MyPool } from 'pg'; // ❌ Incorrect (No such export as "MyPool")
+```
+💡 **Named imports must match the exact name from the package.**  
+You can rename them using `as`:
+```javascript
+import { Pool as DatabasePool } from 'pg'; // ✅ Works
+```
+
+---
+
+## **2. Default Imports (Can Be Any Name)**
+If a package exports something as **default**, you can **give it any name**.
+
+### **Example: Default Import (Any Name Allowed)**
+```javascript
+import anyName from 'some-default-export-package'; // ✅ Works
+```
+If `pg` had a default export (which it doesn’t), you could do:
+```javascript
+import pg from 'pg';
+const pool = new pg.Pool(); // ✅ Works if `pg` had a default export
+```
+💡 **You can rename default imports freely because there’s only one export.**
+
+---
+
+## **3. CommonJS (`require()`) and Importing with Custom Names**
+If you use **CommonJS (`require()`)**, you can rename imports using destructuring:
+
+```javascript
+const { Pool: MyPool } = require('pg'); // ✅ Works
+const pool = new MyPool();
+```
+Or, if `pg` had a default export:
+```javascript
+const pg = require('pg'); // ✅ Any name is allowed
+const pool = new pg.Pool();
+```
+
+---
+
+## **4. How to Know If an Import is Named or Default?**
+To check what a package exports:
+1. Look at the official documentation.
+2. Check the package source code.
+3. Use `console.log()` to inspect:
+   ```javascript
+   import * as pg from 'pg';
+   console.log(pg); // See what is exported
+   ```
+
+---
+
+## **Final Takeaways**
+✔ **Named Imports (`import { X } from 'package'`): Must use the exact name.**  
+✔ **Default Imports (`import X from 'package'`): Can be any name.**  
+✔ **CommonJS (`require()`): You can rename named imports using `{ X: Y }`.  
+
+Would you like a deeper dive into ES modules vs. CommonJS? 🚀
